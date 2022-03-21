@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+
+
+
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [cats, setCats] = useState("")
+  const [btn, setbtn] = useState('')
+
+
+
+  const fetchImg = async () => {
+    const res = await fetch('https://api.thecatapi.com/v1/images/search');
+    const imgBlob = await res.blob();
+    const imageurl = URL.createObjectURL(imgBlob);
+    setCats(imageurl);
+  }
+
+  addHandler
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>Hello</h2>
+      <img src={cats} alt="" />
+      <button onClick={addHandler}>Submit</button>
+
+
     </div>
   );
 }
