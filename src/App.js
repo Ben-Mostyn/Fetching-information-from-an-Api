@@ -17,7 +17,7 @@ function App() {
     setCats(imageurl);
   }
 
-  addHandler
+  
 
 
   return (
